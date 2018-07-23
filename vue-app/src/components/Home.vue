@@ -38,10 +38,10 @@ export default {
     handlePlaceChange ({formatted_address: address, geometry: { location }}) {
       this.area.address = address
       this.area.location = location.toJSON()
-      this.$store.commit('increment', location.toJSON(), address)
+      this.$store.commit('increment', location.toJSON())
     },
     handleSubmit () {
-      this.$router.push('/show');
+      this.$router.push('/show')
     }
   },
   components: {

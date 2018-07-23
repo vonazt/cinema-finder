@@ -13,8 +13,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    location: {},
-    address: {}
+    location: {}
   },
   mutations: {
     increment (state, location) {
