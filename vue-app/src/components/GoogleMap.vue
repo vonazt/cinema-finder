@@ -15,7 +15,11 @@ export default {
   },
   watch: {
     cinemas () {
+      this.bounds = new google.maps.LatLngBounds();
+
       this.markers = this.cinemas.map(cinema => {
+        this.bounds.extend(cinema.location)
+
         const marker = new google.maps.Marker({
           position: cinema.location,
           map: this.map

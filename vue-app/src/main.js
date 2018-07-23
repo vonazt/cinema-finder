@@ -22,24 +22,18 @@ const store = new Vuex.Store({
   }
 })
 
+Vue.config.productionTip = false
+
 const routes = [
-  {
-    path: '/',
-    component: Home
-  },
-  {
-    path: '/show',
-    component: Show
-  }
+  { path: '/', component: Home },
+  { path: '/cinemas', component: Show }
 ]
 
 const router = new VueRouter({
   routes
 })
-
-Vue.config.productionTip = false
-
 /* eslint-disable no-new */
+
 new Vue({
   el: '#app',
   router,

@@ -32,10 +32,10 @@ export default {
   },
   mounted () {
     axios({
+      url: (`https://api.internationalshowtimes.com/v4/cinemas/?location=${this.$store.state.location.lat},${this.$store.state.location.lng}&distance=2`),
       method: 'GET',
-      url: `https://api.internationalshowtimes.com/v4/cinemas/?location=${this.$store.state.location.lat},${this.$store.state.location.lng}&distance=2`,
       headers: {
-        'x-api-key': 'NrURvWtxpKuaAGpOKEynhvjKui6owiXk'
+        'X-API-KEY': 'NrURvWtxpKuaAGpOKEynhvjKui6owiXk'
       }
     })
       .then(res => {
@@ -51,6 +51,11 @@ export default {
         })
       })
   },
+  watch: {
+    location () {
+      return this.$store.state.location
+    }
+  },
   components: {
     GoogleMap
   }
@@ -58,7 +63,7 @@ export default {
 </script>
 
 <style scoped>
-  .map {
-    height: 400px
-  }
+.map {
+  height: 500px;
+}
 </style>
