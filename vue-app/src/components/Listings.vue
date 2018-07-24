@@ -71,6 +71,6 @@ export default {
 
 <style scoped>
   .button {
-    font-size: 10px;
+    font-size: 13px;
   }
 </style>

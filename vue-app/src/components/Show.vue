@@ -1,16 +1,14 @@
 <template>
-  <section class='section'>
-    <div class='container'>
-      <h1>Cinemas</h1>
-      <h2>{{location}}</h2>
-      <div>
-        <google-map v-bind:cinemas="cinemas" v-bind:center="location" v-model="location"/>
-      </div>
-      <ul>
-        <li v-bind:key="cinema.name" v-for="cinema in cinemas">{{cinema.name}}</li>
-      </ul>
+  <main>
+    <h1>Cinemas</h1>
+    <h2>{{location}}</h2>
+    <div>
+      <google-map v-bind:cinemas="cinemas" v-bind:center="location" v-model="location"/>
     </div>
-  </section>
+    <ul>
+      <li v-bind:key="cinema.name" v-for="cinema in cinemas">{{cinema.name}}</li>
+    </ul>
+  </main>
 </template>
 
 <script>
@@ -41,7 +39,7 @@ export default {
   methods: {
     getCinemaLocations () {
       axios({
-        url: (`https://api.internationalshowtimes.com/v4/cinemas/?location=${this.$store.state.location.lat},${this.$store.state.location.lng}&distance=2`),
+        url: (`https://api.internationalshowtimes.com/v4/cinemas/?location=${this.$store.state.location.lat},${this.$store.state.location.lng}&distance=3`),
         method: 'GET',
         headers: {
           'X-API-KEY': 'NrURvWtxpKuaAGpOKEynhvjKui6owiXk'
@@ -69,6 +67,10 @@ export default {
 
 <style scoped>
 .map {
-  height: 500px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 </style>
