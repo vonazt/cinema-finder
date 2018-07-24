@@ -5,7 +5,7 @@
       <ul>
         <li v-bind:key="movie.id" v-for="movie in movies"><strong>{{movie.title}}</strong>
           <p v-if="time.movie_id === movie.id" v-bind:key="time.id" v-for="time in showtimes">{{formatDate(time.start_at)}}
-            <button class="button" v-bind:href="time.booking_link">Book here</button>
+            <a class="button" v-bind:href="time.booking_link">Book here</a>
           </p>
         </li>
 
