@@ -1,6 +1,6 @@
 <template>
   <div class="field">
-    <input ref="autocomplete" class="input" placeholder="Search an area" />
+    <input ref="autocomplete" class="input" placeholder="Search for cinemas" />
   </div>
 </template>
 
@@ -25,4 +25,5 @@ export default {
 </script>
 
 <style>
+
 </style>
