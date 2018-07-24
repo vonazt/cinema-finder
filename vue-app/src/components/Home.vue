@@ -84,6 +84,7 @@ export default {
   .button {
     font-family: 'Lato';
     font-size: 20px;
+    font-weight: 600;
     display: block;
     margin: 0 auto;
     margin-top: 30px;

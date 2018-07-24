@@ -18,5 +18,12 @@ export default {
 </script>
 
 <style>
-
+  .navbar {
+    background-color: rgb(28, 9, 0);
+  }
+  .navbar-item {
+    color: #fff;
+    font-family: 'Lato';
+    font-size: 20px;
+  }
 </style>
