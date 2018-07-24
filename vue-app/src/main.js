@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 import Vuex from 'vuex'
 import Home from './components/Home'
 import Show from './components/Show'
+import Listings from './components/Listings'
 import './assets/scss/style.scss'
 
 Vue.use(VueRouter)
@@ -21,12 +22,12 @@ const store = new Vuex.Store({
     }
   }
 })
-
 Vue.config.productionTip = false
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/cinemas', component: Show }
+  { path: '/show', component: Show },
+  { path: '/listings/:id', component: Listings }
 ]
 
 const router = new VueRouter({
