@@ -2,7 +2,6 @@
   <section class="section">
     <div class="container">
       <h1 class="title is-1">{{msg}}</h1>
-      <h2>{{location}}</h2>
       <form v-on:submit.prevent="handleSubmit()">
         <div class="field">
           <label class="label">Search an area for cinemas</label>

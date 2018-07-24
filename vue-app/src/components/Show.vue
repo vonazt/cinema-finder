@@ -1,8 +1,7 @@
 <template>
   <section class='section'>
     <div class='container'>
-      <h1>Cinemas</h1>
-      <h2>{{location}}</h2>
+      <h1 class="title is-1">Cinemas</h1>
       <div>
         <google-map v-bind:cinemas="cinemas" v-bind:center="location" v-model="location"/>
       </div>
