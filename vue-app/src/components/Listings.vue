@@ -1,6 +1,7 @@
 <template>
   <section class="section">
     <div class="container">
+<<<<<<< HEAD
       <h1 class="title is-1">Currently showing:</h1>
       <div class="columns is-multiline">
         <div class="column is-one-third" v-for="movie in movies">
@@ -14,6 +15,17 @@
           </ul>
         </div>
       </div>
+=======
+      <h1>Currently showing:</h1>
+      <ul>
+        <li v-bind:key="movie.id" v-for="movie in movies"><strong>{{movie.title}}</strong>
+          <p v-if="time.movie_id === movie.id" v-bind:key="time.id" v-for="time in showtimes">{{formatDate(time.start_at)}}
+            <a class="button" v-bind:href="time.booking_link">Book here</a>
+          </p>
+        </li>
+
+      </ul>
+>>>>>>> development
     </div>
   </section>
 </template>
@@ -32,8 +44,16 @@ export default {
     }
   },
   methods: {
+<<<<<<< HEAD
     formatTime (startTime) {
       return moment(startTime).format('HH:mm')
+=======
+    formatDate (startTime) {
+      return moment(startTime).format('ddd, MMM Do, HH:mm')
+    },
+    findDay (startTime) {
+      return moment(startTime).format('ddd, MMM Do')
+>>>>>>> development
     }
   },
   mounted () {
@@ -59,6 +79,7 @@ export default {
             .then(res => {
               this.showtimes = this.showtimes.concat(res.data.showtimes)
               this.showtimes = _.orderBy(this.showtimes, ['start_at'], ['asc'])
+<<<<<<< HEAD
               this.dates = Array.from(new Set(this.showtimes.map(time => {
                 return {
                   date: moment(time.start_at).format('ddd, MMM Do'),
@@ -69,9 +90,21 @@ export default {
               this.dates = _.orderBy(this.dates, ['movie_id'], ['asc'])
               this.dates = _.uniqBy(this.dates, v => [v.date, v.movie_id].join())
               console.log(this.dates)
+=======
+              this.dates = Array.from(new Set(this.showtimes.map(time => moment(time.start_at).format('ddd, MMM Do'))))
+              console.log(this.showtimes)
+              console.log(this.dates)
+              console.log(this.movies)
+>>>>>>> development
             })
         })
       })
   }
 }
 </script>
+
+<style scoped>
+  .button {
+    font-size: 10px;
+  }
+</style>
