@@ -8,11 +8,12 @@ export default {
   name: 'GoogleMap',
   props: ['center', 'cinemas'],
   mounted () {
-    console.log('center', this.center)
     this.map = new google.maps.Map(this.$el, {
-      center: this.center || { lat: 51.515, lng: -0.078 },
+      center: this.center,
       zoom: 14
     })
+
+    this.infoWindow = new google.maps.InfoWindow()
   },
   watch: {
     cinemas () {
@@ -25,13 +26,19 @@ export default {
           position: cinema.location,
           map: this.map
         })
+        marker.addListener('click', () => {
+          this.infoWindow.setContent(`
+            <a href="/#/listings/${cinema.id}"
+            <h2>${cinema.name}</h2>
+            <h2>${cinema.location.address.display_text}</h2>
+          `)
+          this.infoWindow.open(this.map, marker)
+        })
       })
-
     },
     center () {
       this.map.setCenter(this.center)
       this.marker = new google.maps.Marker({
-        position: this.center,
         map: this.map
       })
     }
