@@ -1,6 +1,6 @@
 <template>
   <div class="field">
-    <input ref="autocomplete" class="input" placeholder="Search for cinemas" />
+    <input ref="autocomplete" class="input" placeholder="Search..." />
   </div>
 </template>
 
