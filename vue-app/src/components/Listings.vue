@@ -1,19 +1,23 @@
 <template>
   <section class="section">
-    <div class="container">
+    <div class="container is-centered">
 
       <h1 class="title is-1">Currently showing:</h1>
       <div class="columns is-multiline">
-        <div class="column is-one-third" v-bind:key="movie.id" v-for="movie in movies">
+        <div class="column is-full-width" v-bind:key="movie.id" v-for="movie in movies">
           <ul>
             <img v-bind:src="movie.poster_image_thumbnail" v-bind:alt="movie.title" />
-            <li v-bind:key="movie.id"><strong>{{movie.title}}</strong></li>
+
+            <li v-bind:key="movie.id" class="subtitle is-3"><strong>{{movie.title}}</strong></li>
+
             <div v-for="date in dates" v-bind:key="date.id">
-               <li v-if="date.movie_id === movie.id">{{date.date}}</li>
-               <!-- <li v-if="date.movie_id === movie.id" v-bind:key="date.movie_id">{{date.time}}</li> -->
-               <p v-if="date.movie_id === movie.id && formatDate(time.start_at) === date.date" v-bind:key="time.id" v-for="time in showtimes">{{formatTime(time.start_at)}}
-                 <a class="button" v-bind:href="time.booking_link">Book here</a>
-               </p>
+               <li v-if="date.movie_id === movie.id"><strong>{{date.date}}</strong></li>
+               <table class="table">
+               <tr>
+                 <td v-if="date.movie_id === movie.id && formatDate(time.start_at) === date.date" v-bind:key="time.id" v-for="time in showtimes"><a v-bind:href="time.booking_link">{{formatTime(time.start_at)}}</a></td>
+               </tr>
+             </table>
+
             </div>
           </ul>
         </div>
@@ -83,9 +87,24 @@ export default {
   }
 }
 </script>
-
 <style scoped>
-  .button {
-    font-size: 13px;
-  }
+h1 {
+  text-align: center;
+}
+.table {
+  display: flex;
+  justify-content: center;
+}
+a {
+  font-weight: 700;
+}
+
+ul {
+  text-align: center;
+  justify-content: center;
+}
+
+li {
+  margin-top: 10px;
+}
 </style>
